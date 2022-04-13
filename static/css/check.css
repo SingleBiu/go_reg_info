@@ -1,0 +1,22 @@
+body{
+    background: #89b5ea;
+    text-align: center;
+}
+
+.mainform{
+    width:470px;
+    margin:100px auto;
+    line-height:50px;
+    background:#fff;
+    padding:6%;
+    box-shadow: black 1px 1px 5px;
+    text-align: center;
+}
+input{
+    background: #ffffff;
+}
+button{
+    width:50px;
+    line-height:1px;
+    height:30px;
+}
