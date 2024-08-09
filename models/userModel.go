@@ -16,7 +16,7 @@ type UserTable struct {
 
 func init() {
 	//设置数据库基本信息	ORM必须注册一个别名为default的数据库作为默认使用
-	err := orm.RegisterDataBase("default", "mysql", "root:NZzd952107@tcp(127.0.0.1:3306)/registerinfo?charset=utf8")
+	err := orm.RegisterDataBase("default", "mysql", "root:sql_password@tcp(127.0.0.1:3306)/registerinfo?charset=utf8")
 	if err != nil {
 		return
 	}
