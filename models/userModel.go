@@ -2,7 +2,7 @@
  * @Author: SingleBiu
  * @Date: 2024-11-17 12:14:19
  * @LastEditors: SingleBiu
- * @LastEditTime: 2024-11-17 13:15:18
+ * @LastEditTime: 2024-11-17 13:27:36
  * @Description: file content
  */
 package models
@@ -26,7 +26,7 @@ func init() {
 	//创建 default数据库 以及 项目数据库
 	//[ CREATE DATABASE 'default'; ]
 	//[ CREATE DATABASE registerInfo;]
-	err := orm.RegisterDataBase("default", "mysql", "root:zdcanonvv@tcp(127.0.0.1:3306)/registerInfo?charset=utf8")
+	err := orm.RegisterDataBase("default", "mysql", "root:PASSWORD@tcp(127.0.0.1:3306)/registerInfo?charset=utf8")
 	if err != nil {
 		return
 	}
