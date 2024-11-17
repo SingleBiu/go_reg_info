@@ -1,3 +1,10 @@
+/*
+ * @Author: SingleBiu
+ * @Date: 2024-11-17 12:14:19
+ * @LastEditors: SingleBiu
+ * @LastEditTime: 2024-11-17 13:15:18
+ * @Description: file content
+ */
 package models
 
 import (
@@ -6,17 +13,20 @@ import (
 )
 
 type UserTable struct {
-	ID      int    `orm:"pk;auto;"`
-	Name    string `orm:"size(4);column(name)"`
-	Number  string `orm:"size(12);column(number)"`
-	Phone   string `orm:"size(11);column(phone)"`
-	Career1 string `orm:"size(6);column(career1)"`
-	Career2 string `orm:"size(6);column(career2)"`
+	ID       int    `orm:"pk;auto;"`
+	Name     string `orm:"size(4);column(name)"`
+	Number   string `orm:"size(12);column(number)"`
+	UID_YUAN string `orm:"size(11);column(UID1)"`
+	UID_BENG string `orm:"size(11);column(UID2)"`
+	UID_JUE  string `orm:"size(11);column(UID3)"`
 }
 
 func init() {
 	//设置数据库基本信息	ORM必须注册一个别名为default的数据库作为默认使用
-	err := orm.RegisterDataBase("default", "mysql", "root:sql_password@tcp(127.0.0.1:3306)/registerinfo?charset=utf8")
+	//创建 default数据库 以及 项目数据库
+	//[ CREATE DATABASE 'default'; ]
+	//[ CREATE DATABASE registerInfo;]
+	err := orm.RegisterDataBase("default", "mysql", "root:zdcanonvv@tcp(127.0.0.1:3306)/registerInfo?charset=utf8")
 	if err != nil {
 		return
 	}

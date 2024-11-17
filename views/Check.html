@@ -1,28 +1,41 @@
+<!--
+ * @Author: SingleBiu
+ * @Date: 2024-11-17 12:14:19
+ * @LastEditors: SingleBiu
+ * @LastEditTime: 2024-11-17 13:03:21
+ * @Description: file content
+-->
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>学生会报名</title>
+<title>信息报名</title>
 <link rel="stylesheet" href="../static/css/check.css">
 </head>
 <body>
 
 <div class="mainform">
-    <h1>XX学院<br></h1>
-    <h2>XX学院<br>
-        学生会报名表
+    <h1>提瓦特大陆原味超星神<br></h1>
+    <h2>原神 崩坏：星穹铁道 绝区零<br>
+        UID信息表
     </h2>
     <form method="post" action="Check.html">
-    <div>姓名：<label>
+    <div>QQ昵称：<label>
         <input type="text" name ="Name" maxlength="4" required>
     </label></div>
-    <div>学号：<label>
+    <div>QQ号：<label>
         <input type="text" name ="Number" maxlength="12" required>
     </label></div>
-    <div>电话：<label>
-        <input type="text" name ="Phone" maxlength="11" required>
+    <div>原神UID：<label>
+        <input type="text" name ="UID1" maxlength="11" required>
     </label></div>
-    <div>报名意向一: <label>
+    <div>崩坏：星穹铁道UID：<label>
+        <input type="text" name ="UID2" maxlength="11" required>
+    </label></div>
+    <div>绝区零UID：<label>
+        <input type="text" name ="UID3" maxlength="11" required>
+    </label></div>
+    <!-- <div>报名意向一: <label>
         <select name="career1">
         <option value="办公室1">办公室</option>
         <option value="创就部1">创就部</option>
@@ -54,7 +67,7 @@
         <option value="组织部2">组织部</option>
         <option value="传媒中心2">传媒中心</option></select>
     </label>
-    </div>
+    </div> -->
     <input type ="submit" value="提交" >
     </form>
 </div>

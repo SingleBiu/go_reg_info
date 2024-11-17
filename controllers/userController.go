@@ -1,9 +1,10 @@
 package controllers
 
 import (
+	"regInfo/models"
+
 	"github.com/beego/beego/v2/client/orm"
 	beego "github.com/beego/beego/v2/server/web"
-	"regInfo/models"
 )
 
 type UsrController struct {
@@ -18,12 +19,12 @@ func (c *UsrController) HandleUsrPost() {
 	//1.拿到数据
 	Name := c.GetString("Name")
 	Number := c.GetString("Number")
-	Phone := c.GetString("Phone")
-	Career1 := c.GetString("career1")
-	Career2 := c.GetString("career2")
-	println(Name, Number, Phone, Career1, Career2)
+	UID_YUAN := c.GetString("UID1")
+	UID_BENG := c.GetString("UID2")
+	UID_JUE := c.GetString("UID3")
+	println(Name, Number, UID_YUAN, UID_BENG, UID_JUE)
 	//2.对数据进行校验
-	if Name == "" || Number == "" || Phone == "" || Career1 == "" || Career2 == "" {
+	if Name == "" || Number == "" || UID_YUAN == "" || UID_BENG == "" || UID_JUE == "" {
 		c.Ctx.WriteString("未填写完全")
 		c.Ctx.WriteString("请补全信息")
 		c.Redirect("/Check", 302)
@@ -35,15 +36,16 @@ func (c *UsrController) HandleUsrPost() {
 	user := models.UserTable{}
 	user.Name = Name
 	user.Number = Number
-	user.Phone = Phone
-	user.Career1 = Career1
-	user.Career2 = Career2
+	user.UID_YUAN = UID_YUAN
+	user.UID_BENG = UID_BENG
+	user.UID_JUE = UID_JUE
+	//QQ号作为ID更新信息 查询到数据库中有该QQ号则更新信息
 	exist := o.Read(&user, "number")
 	if exist == nil {
 		user.Name = Name
-		user.Phone = Phone
-		user.Career1 = Career1
-		user.Career2 = Career2
+		user.UID_YUAN = UID_YUAN
+		user.UID_BENG = UID_BENG
+		user.UID_JUE = UID_JUE
 		_, err := o.Update(&user)
 		if err != nil {
 			c.Ctx.WriteString("数据更新失败")
@@ -51,7 +53,7 @@ func (c *UsrController) HandleUsrPost() {
 			return
 		} else {
 			c.Ctx.WriteString("数据更新成功")
-			c.TplName = "success.html"
+			c.TplName = "Success.html"
 			return
 		}
 	}
@@ -62,7 +64,7 @@ func (c *UsrController) HandleUsrPost() {
 		return
 	}
 	//4.返回登陆界面
-	c.TplName = "success.html"
+	c.TplName = "Success.html"
 }
 
 func (c *UsrController) ShowRegister() {
